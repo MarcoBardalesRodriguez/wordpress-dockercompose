@@ -1,0 +1,6 @@
+.env
+.git
+.dockerignore
+nginx-conf/
+wordpress/
+wordpress-mysql/
