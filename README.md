@@ -266,6 +266,13 @@ $ rm ./nginx-conf/nginx.conf
 $ cp ./files/step3/nginx.conf ./nginx-conf/
 ~~~
 
+Eliminamos el archivo **docker-compose.yml** actual y lo reemplazamos con el que se encuentra en la carpeta **files/step3/docker-compose.yml**
+
+~~~
+$ rm docker-compose.yml
+$ cp ./files/step3/docker-compose.yml ./
+~~~
+
 **Importante**, reemplazar en los archivos **nginx.conf** y **docker-compose.yml** la palabra ***dominio*** por el dominio que se usará para el despliegue, y agregar un email valido en el servicio ***certbot*** del archivo **docker-compose.yml**:
 
 
