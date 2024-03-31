@@ -55,8 +55,6 @@ Y creamos las siguientes carpetas:
 
 ~~~
 $ mkdir nginx-conf
-$ mkdir wordpress
-$ mkdir wordpress-mysql
 ~~~
 
 ### Paso 1: Despliegue HTTP
@@ -266,19 +264,34 @@ $ rm ./nginx-conf/nginx.conf
 $ cp ./files/step3/nginx.conf ./nginx-conf/
 ~~~
 
-Eliminamos el archivo **docker-compose.yml** actual y lo reemplazamos con el que se encuentra en la carpeta **files/step3/docker-compose.yml**
-
-~~~
-$ rm docker-compose.yml
-$ cp ./files/step3/docker-compose.yml ./
-~~~
-
-**Importante**, reemplazar en los archivos **nginx.conf** y **docker-compose.yml** la palabra ***dominio*** por el dominio que se usará para el despliegue, y agregar un email valido en el servicio ***certbot*** del archivo **docker-compose.yml**:
+**Importante**, reemplazar en el archivos **nginx.conf** la palabra ***dominio*** por el dominio que se usará para el despliegue.
 
 
 #### Configurar puerto HTTPS para Wordpress
 
 ***Si usa NginxProxyManager:***
+
+Modificar archivo **docker-compose.yml** y agregar el segundo puerto del servicio **webserver**: *"8443:443"
+
+~~~
+...
+  webserver:
+    depends_on:
+      - wordpress
+    image: nginx:1.15.12-alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "8443:443"
+    volumes:
+      - wordpress:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - wordpress-certbot:/etc/letsencrypt
+    networks:
+      - wordpress-network
+...
+~~~
 
 Modificar proxy host creado anteriormente
 
