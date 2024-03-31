@@ -55,8 +55,8 @@ Y creamos las siguientes carpetas:
 
 ~~~
 $ mkdir nginx-conf
-$ mkdir wordpress-data
-$ mkdir db-data
+$ mkdir wordpress
+$ mkdir wordpress-mysql
 ~~~
 
 ### Paso 1: Despliegue HTTP

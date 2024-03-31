@@ -1,6 +1,7 @@
 .env
 .git
 .dockerignore
+docker-compose.yml
 nginx-conf/
 wordpress/
 wordpress-mysql/
