@@ -152,7 +152,7 @@ wordpress   docker-entrypoint.sh php-fpm     Up       9000/tcp
 Revisar que los certificados ssl se hayan obtenido correctamente:
 
 ~~~
-$ docker compose exec webserver ls -la /etc/letsencryt/live
+$ docker compose exec webserver ls -la /etc/letsencrypt/live
 ~~~
 
 La salida debe contener el nombre de su dominio en el listado:
